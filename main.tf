@@ -32,7 +32,7 @@ data "aws_ami" "amazon_linux_2" {
 # 웹 트래픽(80) 및 SSH(22)를 허용하는 보안 그룹 생성
 resource "aws_security_group" "nginx_sg" {
   name        = "nginx_sg"
-  description = "Allow HTTP and SSH inbound traffic"
+  description = "HTTP와 SSH 인바운드 트래픽을 허용합니다"
 
   ingress {
     from_port   = 80
@@ -83,5 +83,5 @@ resource "aws_instance" "nginx_server" {
 # EC2 인스턴스의 퍼블릭 IP 주소 출력
 output "public_ip" {
   value       = aws_instance.nginx_server.public_ip
-  description = "The public IP address of the Nginx web server."
+  description = "Nginx 웹 서버의 퍼블릭 IP 주소입니다."
 }
